@@ -1,6 +1,7 @@
 //ship.cpp
 #include "ship.h"
 #include "game.h"
+#include "bullet.h"
 using namespace sf;
 using namespace std;
 
@@ -42,9 +43,10 @@ void Invader::Update(const float &dt) {
 	}
 }
 
-const Keyboard::Key controls[4] = {
+const Keyboard::Key controls[3] = {
 	Keyboard::Left,   // Player1 Left
 	Keyboard::Right,   // Player1 Right
+	Keyboard::Space,	//Player1 Fire
 };
 
 Player::Player() : Ship(IntRect(160, 32, 32, 32)) {
@@ -63,6 +65,11 @@ void Player::Update(const float &dt) {
 	if (Keyboard::isKeyPressed(controls[1]))
 	{
 		direction++;
+	}
+
+
+	if (Keyboard::isKeyPressed(controls[2])) {
+		Bullet::Fire(getPosition(), false);
 	}
 
 	move(direction * 100 * dt, 0);

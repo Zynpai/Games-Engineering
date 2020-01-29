@@ -1,11 +1,13 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 #include "ship.h"
+#include "bullet.h"
 
 using namespace sf;
 using namespace std;
 
 std::vector<Ship*> ships;
+
 
 sf::Texture spritesheet;
 sf::Sprite invader;
@@ -53,6 +55,8 @@ void Update(RenderWindow& window)
 		s->Update(dt);
 	};
 
+	Bullet::Update(dt);
+
 }
 
 void Render(RenderWindow& window)
@@ -60,6 +64,8 @@ void Render(RenderWindow& window)
 	for (const auto s : ships) {
 		window.draw(*s);
 	}
+
+	Bullet::Render(window);
 }
 
 int main()

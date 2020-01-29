@@ -39,3 +39,4 @@ set_target_properties(PRACTICAL_2
     ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/$(Configuration)
 )
 add_dependencies(PRACTICAL_2 copy_resources)
+
