@@ -3,7 +3,7 @@
 using namespace sf;
 using namespace std;
 
-static unsigned char bulletPointer;
+unsigned char bulletPointer;
 Bullet Bullet::bullets[256];
 
 //Create definition for the constructor
@@ -27,6 +27,16 @@ Bullet::Bullet(const sf::Vector2f& pos, const bool mode)  {
 
 	bool _mode = mode;
 };
+
+void Bullet::Init()
+{
+	for (int i = 0; i <= 256; i++)
+	{
+		bullets[i].setPosition(-999.0f,-999.0f);
+		bullets[i].setOrigin(16,16);
+		bullets[i].setTexture(spritesheet);
+	}
+}
 
 void Bullet::Update(const float &dt) {
 	for (auto& b : bullets) {

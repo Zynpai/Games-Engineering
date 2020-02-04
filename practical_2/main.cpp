@@ -43,6 +43,8 @@ void Load()
 		positionY = positionY + 50.0;
 	}
 
+	Bullet::Init();
+
     auto player = new Player;
 	ships.push_back(player);
 }
@@ -55,7 +57,6 @@ void Update(RenderWindow& window)
 		s->Update(dt);
 	};
 
-	Bullet::Update(dt);
 
 }
 
@@ -65,7 +66,6 @@ void Render(RenderWindow& window)
 		window.draw(*s);
 	}
 
-	Bullet::Render(window);
 }
 
 int main()

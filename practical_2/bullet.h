@@ -12,6 +12,8 @@ public:
   //Chose an inactive bullet and use it.
   static void Fire(const sf::Vector2f& pos, const bool mode);
   ~Bullet()=default;
+  static void Init();
+
 protected:
   static unsigned char bulletPointer;
   static Bullet bullets[256];
