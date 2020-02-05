@@ -10,4 +10,5 @@ constexpr uint16_t invaders_columns = 12;
 extern sf::Texture spritesheet;
 extern std::vector<Ship*> ships;
 extern Player* player;
-//static vector<Bullet*> bullets;
+
+static unsigned char bulletPointer;

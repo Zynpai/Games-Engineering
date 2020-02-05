@@ -7,7 +7,7 @@ using namespace sf;
 using namespace std;
 
 std::vector<Ship*> ships;
-
+Ship* player;
 
 sf::Texture spritesheet;
 sf::Sprite invader;
@@ -47,6 +47,9 @@ void Load()
 
     auto player = new Player;
 	ships.push_back(player);
+
+	Player::speed = 140.f;
+	Bullet::speed = 300.f;
 }
 
 void Update(RenderWindow& window)
@@ -57,6 +60,7 @@ void Update(RenderWindow& window)
 		s->Update(dt);
 	};
 
+	Bullet::Update(dt);
 
 }
 
@@ -66,7 +70,9 @@ void Render(RenderWindow& window)
 		window.draw(*s);
 	}
 
-}
+	Bullet::Render(window);
+
+}		
 
 int main()
 {
