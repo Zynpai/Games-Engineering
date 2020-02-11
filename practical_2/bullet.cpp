@@ -56,7 +56,7 @@ void Bullet::_Update(const float& dt) {
 
 	for (auto ship : ships) {
 		// invader bullet on invader collision
-				// player bullet on player collision
+		// player bullet on player collision
 		if (!_mode && ship->isPlayer())
 			continue;
 		if (!ship->isExploded() && ship->getGlobalBounds().intersects(bulletBounds)) {
